@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="400.0" stylesheets="@../styles/stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.controllers.Controller">
+   <top>
+      <VBox alignment="TOP_CENTER" prefWidth="600.0" styleClass="box" stylesheets="@../styles/stylesheet.css" BorderPane.alignment="CENTER">
+          <children>
+            <HBox alignment="CENTER" prefHeight="30.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label prefWidth="260.0" styleClass="Label" text="Chose folder to search" />
+                    <JFXButton fx:id="choseButton" buttonType="RAISED" maxWidth="1.7976931348623157E308" onAction="#loadPath" styleClass="content-btn" text="Open explorer" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <children>
+                  <Label prefWidth="260.0" styleClass="Label" text="Enter text you are looking for" />
+                    <JFXTextField fx:id="textField" maxWidth="1.7976931348623157E308" promptText="Enter keyword you want to find" styleClass="Label" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label prefWidth="260.0" styleClass="Label" text="Mark if you want to search also in inside folders" />
+                    <JFXCheckBox fx:id="checkBox" text=" " />
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="30.0">
+               <children>
+                  <Label prefWidth="260.0" styleClass="Label" text="Chose searching method" />
+                  <JFXRadioButton fx:id="optionFast" maxWidth="1.7976931348623157E308" text="FAST" HBox.hgrow="ALWAYS">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="group" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="optionMedium" maxWidth="1.7976931348623157E308" text="MEDIUM" toggleGroup="$group" HBox.hgrow="ALWAYS" />
+                  <JFXRadioButton fx:id="optionSlow" maxWidth="1.7976931348623157E308" text="SLOW - MOST PRECISE" toggleGroup="$group" HBox.hgrow="ALWAYS" />
+               </children>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="30.0" VBox.vgrow="ALWAYS">
+               <children>
+                    <JFXButton fx:id="findButton" buttonType="RAISED" maxWidth="1.7976931348623157E308" onAction="#findFiles" styleClass="content-btn" text="Search" HBox.hgrow="ALWAYS" />
+               </children>
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets right="20.0" />
+               </padding>
+            </HBox>
+          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" top="20.0" />
+         </padding>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="tableTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
